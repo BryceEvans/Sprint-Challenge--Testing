@@ -31,7 +31,7 @@ describe('/get games', () => {
     const response = await request(server).get('/games');
     expect(response.type).toMatch(/json/i);
   })
-  it('semds cprrect response object', async () => {
+  it('sends cprrect response object', async () => {
     const response = await request(server).get('/games');
     expect(response.body).toEqual([]);
   })
