@@ -20,7 +20,7 @@ server.post('/games', async (req, res) => {
     const ids = await games.insert(gameData);
     res.status(201).json(ids);
   } else {
-    res.status(422).json({ error: "Missing name or genre in body" });
+    res.status(422).json({ error: "missing name and/or genre in body" });
   }
 })
 

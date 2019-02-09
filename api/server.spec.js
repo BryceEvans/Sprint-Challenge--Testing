@@ -48,14 +48,14 @@ describe('/post games', () => {
     const response = await request(server).post('/games').send(body);
     expect(response.status).toBe(201);
   })
-  it('responds with 422 when body is missing data', async () => {
-    const body = {};
-    const response = await request(server).post('/games').send(body);
-    expect(response.status).toBe(422);
-  })
   it('responds with an array containing a new id', async () => {
     const body = { name: 'Hero Quest', genre: 'Board' };
     const response = await request(server).post('/games').send(body);
     expect(response.body.length).toBe(1);
+  })
+  it('responds with 422 when body is missing data', async () => {
+    const body = {};
+    const response = await request(server).post('/games').send(body);
+    expect(response.status).toBe(422);
   })
 })
