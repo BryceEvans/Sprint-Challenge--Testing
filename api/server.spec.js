@@ -44,12 +44,12 @@ describe('post /games', () => {
   })
 
   it('responds with a 201 status when body is correct', async () => {
-    const body = { name: 'Hero Quest', genre: 'Board' };
+    const body = { name: 'Hero Quest', genre: 'Board', releaseYear: 1990 };
     const response = await request(server).post('/games').send(body);
     expect(response.status).toBe(201);
   })
   it('responds with an array containing a new id', async () => {
-    const body = { name: 'Hero Quest', genre: 'Board' };
+    const body = { name: 'Hero Quest', genre: 'Board', releaseYear: 1990 };
     const response = await request(server).post('/games').send(body);
     expect(response.body.length).toBe(1);
   })
