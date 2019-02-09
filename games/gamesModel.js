@@ -8,8 +8,8 @@ module.exports = {
   findById,
 }
 
-async function insert(gameData) {
-  return db('games').insert(gameData);
+async function insert(game) {
+  return db('games').insert(game);
 }
 
 async function update(id, changes) {

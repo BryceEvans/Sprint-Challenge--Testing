@@ -3,6 +3,8 @@ const db = require('../data/dbConfig');
 
 describe('the game model', () => {
   
+
+
   afterEach(async () => {
     await db('games').truncate();
   })

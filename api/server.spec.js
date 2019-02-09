@@ -37,7 +37,7 @@ describe('/get games', () => {
   })
 })
 
-describe('/post games', () => {
+describe('post /games', () => {
 
   afterEach(async () => {
     await db('games').truncate();
