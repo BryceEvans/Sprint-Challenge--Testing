@@ -12,12 +12,14 @@ describe('get / route handler', () => {
     const response = await request(server).get('/');
     expect(response.status).toBe(200);
   })
-  // it('', async () => {
-
-  // })
-  // it('', async () => {
-
-  // })
+  it('responds with json', async () => {
+    const response = await request(server).get('/');
+    expect(response.type).toMatch(/json/i);
+  })
+  it('sends the correct response object', async () => {
+    const response = await request(server).get('/');
+    expect(response.body).toEqual({ api: 'running' });
+  })
 })
 
 // describe('', () => {
