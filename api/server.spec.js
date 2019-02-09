@@ -36,3 +36,26 @@ describe('/get games', () => {
     expect(response.body).toEqual([]);
   })
 })
+
+describe('/post games', () => {
+
+  afterEach(async () => {
+    await db('games').truncate();
+  })
+
+  it('responds with a 201 status when body is correct', async () => {
+    const body = { name: 'Hero Quest', genre: 'Board', releaseYear: 1990 };
+    const response = await request(server).post('/games').send(body);
+    expect(response.status).toBe(201);
+  })
+  it('responds with 422 when body is missing data', async () => {
+    const body = {};
+    const response = await request(server).post('/games').send(body);
+    expect(response.status).toBe(422);
+  })
+  it('responds with an array containing a new id', async () => {
+    const body = { name: 'Hero Quest', genre: 'Board', releaseYear: 1990 };
+    const response = await request(server).post('/games').send(body);
+    expect(response.body.length).toBe(1);
+  })
+})
